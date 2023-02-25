@@ -4,7 +4,7 @@
 ![npm](https://img.shields.io/npm/v/react-native-tprinter?color=green&logo=npm&logoColor=green)
 
 - I forked this for my quickly project, this is not the official project.
-- Fork of [`react-native-tprinter`](https://www.npmjs.com/package/react-native-tprinter) and add implement :
+- Fork of [`react-native-thermal-receipt-printer`](https://www.npmjs.com/package/react-native-thermal-receipt-printer) and add implement:
   <br />
 
 | Implement                 | Android            | IOS                |
