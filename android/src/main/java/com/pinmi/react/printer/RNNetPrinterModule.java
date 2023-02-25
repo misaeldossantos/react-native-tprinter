@@ -9,9 +9,9 @@ import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.pinmi.react.printer.adapter.NetPrinterAdapter;
-import com.pinmi.react.printer.adapter.NetPrinterDeviceId;
-import com.pinmi.react.printer.adapter.PrinterAdapter;
+import com.pinmi.react.printer.adapter.net.NetPrinterAdapter;
+import com.pinmi.react.printer.adapter.net.NetPrinterDeviceId;
+import com.pinmi.react.printer.adapter.abstracts.PrinterAdapter;
 
 /**
  * Created by xiesubin on 2017/9/22.
@@ -79,6 +79,11 @@ public class RNNetPrinterModule extends ReactContextBaseJavaModule implements RN
         byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         adapter.printImageBase64(decodedByte, imageWidth, imageHeight, errorCallback);
+    }
+
+    @Override
+    public void getStatus(Callback callback) {
+        callback.invoke();
     }
 
     @Override

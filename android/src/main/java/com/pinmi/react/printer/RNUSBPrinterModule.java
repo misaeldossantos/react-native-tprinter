@@ -10,10 +10,10 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableArray;
-import com.pinmi.react.printer.adapter.PrinterAdapter;
-import com.pinmi.react.printer.adapter.PrinterDevice;
-import com.pinmi.react.printer.adapter.USBPrinterAdapter;
-import com.pinmi.react.printer.adapter.USBPrinterDeviceId;
+import com.pinmi.react.printer.adapter.abstracts.PrinterAdapter;
+import com.pinmi.react.printer.adapter.abstracts.PrinterDevice;
+import com.pinmi.react.printer.adapter.usb.USBPrinterAdapter;
+import com.pinmi.react.printer.adapter.usb.USBPrinterDeviceId;
 
 import java.util.List;
 
@@ -80,6 +80,11 @@ public class RNUSBPrinterModule extends ReactContextBaseJavaModule implements RN
         byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         adapter.printImageBase64(decodedByte, imageWidth, imageHeight,errorCallback);
+    }
+
+    @Override
+    public void getStatus(Callback callback) {
+        callback.invoke();
     }
 
     @ReactMethod

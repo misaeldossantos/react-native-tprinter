@@ -1,10 +1,10 @@
-# react-native-thermal-receipt-printer-image-qr
+# react-native-tprinter
 
-![npm](https://img.shields.io/npm/dw/react-native-thermal-receipt-printer-image-qr?logo=github)
-![npm](https://img.shields.io/npm/v/react-native-thermal-receipt-printer-image-qr?color=green&logo=npm&logoColor=green)
+![npm](https://img.shields.io/npm/dw/react-native-tprinter?logo=github)
+![npm](https://img.shields.io/npm/v/react-native-tprinter?color=green&logo=npm&logoColor=green)
 
 - I forked this for my quickly project, this is not the official project.
-- Fork of [`react-native-thermal-receipt-printer`](https://www.npmjs.com/package/react-native-thermal-receipt-printer) and add implement :
+- Fork of [`react-native-tprinter`](https://www.npmjs.com/package/react-native-tprinter) and add implement :
   <br />
 
 | Implement                 | Android            | IOS                |
@@ -33,14 +33,14 @@
 ## Installation
 
 ```
-npm i react-native-thermal-receipt-printer-image-qr
+npm i react-native-tprinter
 npm i react-native-ping
 ```
 
 or
 
 ```
-yarn add react-native-thermal-receipt-printer-image-qr
+yarn add react-native-tprinter
 yarn add react-native-ping
 ```
 
@@ -51,7 +51,7 @@ next step
 cd ios && pod install
 
 # RN < 0.60
-react-native link react-native-thermal-receipt-printer-image-qr
+react-native link react-native-tprinter
 ```
 
 ## API Reference
@@ -99,10 +99,10 @@ react-native link react-native-thermal-receipt-printer-image-qr
 import {
   COMMANDS,
   ColumnAlignment,
-} from "react-native-thermal-receipt-printer-image-qr";
+} from "react-native-tprinter";
 ```
 
-[See more here](https://github.com/thiendangit/react-native-thermal-receipt-printer-image-qr/blob/main/dist/utils/printer-commands.js)
+[See more here](https://github.com/thiendangit/react-native-tprinter/blob/main/dist/utils/printer-commands.js)
 
 ## Example
 
@@ -157,7 +157,7 @@ Printer.printImage(
 );
 ```
 
-[See more here](https://github.com/thiendangit/react-native-thermal-receipt-printer-image-qr/blob/main/example/src/HomeScreen.tsx)
+[See more here](https://github.com/thiendangit/react-native-tprinter/blob/main/example/src/HomeScreen.tsx)
 
 ## Troubleshoot
 

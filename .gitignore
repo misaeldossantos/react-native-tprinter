@@ -61,3 +61,4 @@ buck-out/
 /ios/Pods/
 example/node_modules/
 example/android/build
+dist

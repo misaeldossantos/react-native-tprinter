@@ -11,11 +11,10 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableArray;
-import com.pinmi.react.printer.adapter.BLEPrinterAdapter;
-import com.pinmi.react.printer.adapter.BLEPrinterDeviceId;
-import com.pinmi.react.printer.adapter.PrinterAdapter;
-import com.pinmi.react.printer.adapter.PrinterDevice;
-//import com.pinmi.react.printer.adapter.PrinterOption;
+import com.pinmi.react.printer.adapter.ble.BLEPrinterAdapter;
+import com.pinmi.react.printer.adapter.ble.BLEPrinterDeviceId;
+import com.pinmi.react.printer.adapter.abstracts.PrinterAdapter;
+import com.pinmi.react.printer.adapter.abstracts.PrinterDevice;
 
 import java.util.List;
 
@@ -53,14 +52,10 @@ public class RNBLEPrinterModule extends ReactContextBaseJavaModule implements RN
     public void getDeviceList(Callback successCallback, Callback errorCallback) {
         List<PrinterDevice> printerDevices = adapter.getDeviceList(errorCallback);
         WritableArray pairedDeviceList = Arguments.createArray();
-        if (printerDevices.size() > 0) {
-            for (PrinterDevice printerDevice : printerDevices) {
-                pairedDeviceList.pushMap(printerDevice.toRNWritableMap());
-            }
-            successCallback.invoke(pairedDeviceList);
-        } else {
-            errorCallback.invoke("No Device Found");
+        for (PrinterDevice printerDevice : printerDevices) {
+            pairedDeviceList.pushMap(printerDevice.toRNWritableMap());
         }
+        successCallback.invoke(pairedDeviceList);
     }
 
 
@@ -74,7 +69,7 @@ public class RNBLEPrinterModule extends ReactContextBaseJavaModule implements RN
     @Override
     public void printImageData(String imageUrl, int imageWidth, int imageHeight, Callback errorCallback) {
         Log.v("imageUrl", imageUrl);
-        adapter.printImageData(imageUrl, imageWidth, imageHeight,errorCallback);
+        adapter.printImageData(imageUrl, imageWidth, imageHeight, errorCallback);
     }
 
     @ReactMethod
@@ -82,7 +77,12 @@ public class RNBLEPrinterModule extends ReactContextBaseJavaModule implements RN
     public void printImageBase64(String base64, int imageWidth, int imageHeight, Callback errorCallback) {
         byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-        adapter.printImageBase64(decodedByte, imageWidth, imageHeight,errorCallback);
+        adapter.printImageBase64(decodedByte, imageWidth, imageHeight, errorCallback);
+    }
+
+    @Override
+    public void getStatus(Callback callback) {
+        adapter.getStatus(callback);
     }
 
     @ReactMethod

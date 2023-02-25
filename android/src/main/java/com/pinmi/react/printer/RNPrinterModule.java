@@ -22,5 +22,7 @@ public interface RNPrinterModule {
 
     @ReactMethod
     public void printImageBase64(String base64, int imageWidth, int imageHeight, Callback errorCallback) ;
+    @ReactMethod
+    public void getStatus(Callback callback);
 }
 
