@@ -80,6 +80,7 @@ public class RNBLEPrinterModule extends ReactContextBaseJavaModule implements RN
         adapter.printImageBase64(decodedByte, imageWidth, imageHeight, errorCallback);
     }
 
+    @ReactMethod
     @Override
     public void getStatus(Callback callback) {
         adapter.getStatus(callback);
