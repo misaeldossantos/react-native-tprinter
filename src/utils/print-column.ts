@@ -1,4 +1,4 @@
-import { ColumnAlignment } from "..";
+import { ColumnAlignment } from "../printers";
 
 /**
  * Using to add space for each row
