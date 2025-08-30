@@ -37,7 +37,7 @@ class RNNetPrinterModule(private val reactContext: ReactApplicationContext) : Re
     }
 
     @ReactMethod
-    fun connectPrinter(host: String?, port: Int?, successCallback: Callback, errorCallback: Callback) {
+    fun connectPrinterWithHostPort(host: String?, port: Int?, successCallback: Callback, errorCallback: Callback) {
         adapter!!.selectDevice(NetPrinterDeviceId.valueOf(host, port), successCallback, errorCallback)
     }
 

@@ -41,7 +41,7 @@ class RNUSBPrinterModule(protected var reactContext: ReactApplicationContext) : 
     }
 
     @ReactMethod
-    fun connectPrinter(vendorId: Int, productId: Int, successCallback: Callback, errorCallback: Callback) {
+    fun connectPrinterWithVendor(vendorId: Int, productId: Int, successCallback: Callback, errorCallback: Callback) {
         adapter!!.selectDevice(USBPrinterDeviceId.valueOf(vendorId, productId), successCallback, errorCallback)
     }
 

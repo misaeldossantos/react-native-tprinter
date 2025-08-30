@@ -31,7 +31,7 @@ const NetPrinter = {
         new Promise(async (resolve, reject) => {
             try {
                 await connectToHost(host, timeout);
-                RNNetPrinter.connectPrinter(
+                RNNetPrinter.connectPrinterWithHostPort(
                     host,
                     port,
                     (printer: INetPrinter) => resolve(printer),

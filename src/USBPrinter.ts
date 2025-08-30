@@ -24,7 +24,7 @@ const USBPrinter = {
 
     connectPrinter: (vendorId: string, productId: string): Promise<IUSBPrinter> =>
         new Promise((resolve, reject) =>
-            RNUSBPrinter.connectPrinter(
+            RNUSBPrinter.connectPrinterWithVendor(
                 vendorId,
                 productId,
                 (printer: IUSBPrinter) => resolve(printer),
